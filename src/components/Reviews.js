@@ -50,9 +50,9 @@ const Reviews = () => {
   ];
 
   return (
-    <div className="w-full h-screen flex flex-col justify-center items-center bg-slate-200">
+    <div className="w-full min-h-screen flex flex-col justify-center items-center bg-slate-200 py-12">
       <h1 className="text-3xl font-bold mb-8 text-center">Ulasan</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 gap-6 mx-auto px-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 px-4 max-w-7xl mx-auto">
         {reviews.map((review, index) => (
           <div key={index} className="bg-white shadow-lg rounded-lg p-6 flex flex-col items-center">
             <img 
@@ -60,7 +60,7 @@ const Reviews = () => {
               alt={review.author}
               className="w-16 h-16 rounded-full mb-4"
             />
-            <p className="text-gray-800">{review.text}</p>
+            <p className="text-gray-800 text-center">{review.text}</p>
             <p className="text-gray-600 mt-2 text-right">- {review.author}</p>
           </div>
         ))}

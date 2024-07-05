@@ -25,13 +25,13 @@ const Gallery = () => {
     <div className="w-full min-h-screen flex flex-col justify-center items-center bg-gradient-to-br from-blue-400 via-purple-800 to-red-400 text-white">
       <div className="max-w-7xl mx-auto px-4 lg:px-8 py-12">
         {/* Gallery Heading */}
-        <h1 className="flex justify-center items-center text-3xl md:text-4xl lg:text-5xl font-bold mb-4">Gallery</h1>
-        <p className="flex justify-center items-center text-lg text-gray-300 mb-8">Check out our images</p>
+        <h1 className="text-center text-3xl md:text-4xl lg:text-5xl font-bold mb-4">Gallery</h1>
+        <p className="text-center text-lg text-gray-300 mb-8">Check out our images</p>
 
         {/* Image Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 lg:col-span-1 mt-auto">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
           {images.map((image, index) => (
-            <div key={index} className="w-full h-48 overflow-hidden rounded-lg shadow-lg mb-4">
+            <div key={index} className="w-full h-48 overflow-hidden rounded-lg shadow-lg">
               <img 
                 src={image}
                 alt={`Gallery Image ${index + 1}`}
