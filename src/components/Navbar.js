@@ -26,13 +26,13 @@ const Navbar = ({ heroRef, serviceRef, reviewsRef, galleryRef, blogRef }) => {
 
   const NavLinks = ({ mobile = false }) => (
     <>
-      <a href="/" className="cursor-pointer text-lg text-slate-950 hover:text-blue-500">Home</a>
-      <a onClick={() => scrollToSection(serviceRef)} className="cursor-pointer text-lg text-slate-950 hover:text-blue-500">Services</a>
+      <a href="/" className="cursor-pointer text-lg lg:text-white md:text-white sm:text-slate-950 hover:text-blue-500">Home</a>
+      <a onClick={() => scrollToSection(serviceRef)} className="cursor-pointer text-lg lg:text-white sm:text-slate-950 hover:text-blue-500">Services</a>
       {!window.location.pathname.startsWith('/blog') && (
-        <a onClick={() => scrollToSection(reviewsRef)} className="cursor-pointer text-lg text-slate-950 hover:text-blue-500">Reviews</a>
+        <a onClick={() => scrollToSection(reviewsRef)} className="cursor-pointer text-lg  lg:text-white md:text-white sm:text-slate-950 hover:text-blue-500">Reviews</a>
       )}
-      <a onClick={() => scrollToSection(galleryRef)} className="cursor-pointer text-lg text-slate-950 hover:text-blue-500">Gallery</a>
-      {token && <a href="/blog" className="cursor-pointer text-lg text-slate-950 hover:text-blue-500">Blog</a>}
+      <a onClick={() => scrollToSection(galleryRef)} className="cursor-pointer text-lg  lg:text-white md:text-white sm:text-slate-950 hover:text-blue-500">Gallery</a>
+      {token && <a href="/blog" className="cursor-pointer text-lg text-white hover:text-blue-500">Blog</a>}
      
       {mobile && (
         <div className="flex flex-col items-center space-y-2">
@@ -61,7 +61,7 @@ const Navbar = ({ heroRef, serviceRef, reviewsRef, galleryRef, blogRef }) => {
         </button>
       </div>
       {nav && (
-        <div className="absolute top-20 left-0 w-full bg-white shadow-md py-4 z-50">
+        <div className="absolute top-20 left-0 w-full bg-black shadow-md py-4 z-50">
           <ul className="flex flex-col items-center space-y-4">
             <NavLinks mobile />
           </ul>
