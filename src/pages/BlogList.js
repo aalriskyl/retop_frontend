@@ -22,7 +22,7 @@ const BlogList = () => {
 
   return (
     <div className="text-white bg-gradient-to-br from-blue-400 via-purple-800 to-red-400 min-h-screen pt-24">
-    <Navbar />
+    <Navbar className="text-white" />
     <div className="flex flex-col items-center">
       <h1 className="text-3xl font-bold mt-8 mb-4">Artikel</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
@@ -32,7 +32,7 @@ const BlogList = () => {
               <img className="w-full h-40 object-cover" src={`https://retop-backend.vercel.app${blog.imageUrl}`} alt={blog.title} />
               <div className="px-6 py-4">
                 <div className="font-bold text-xl mb-2">{blog.title}</div>
-                <span className="inline-block text-white py-2 text-sm font-semibold text-gray-700 mr-2">
+                <span className="inline-block text-white py-2 text-sm font-semibold mr-2">
                   {blog.author}
                 </span>
                 <p className="text-gray-300 text-base">{blog.description}</p>

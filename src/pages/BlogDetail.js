@@ -30,7 +30,7 @@ const BlogDetail = () => {
     <div>
     <div className="container mx-auto my-8 py-4">
       <div className="max-w-4xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
-        <img className="w-full h-96 object-cover" src={`http://localhost:3001${blog.imageUrl}`} alt={blog.title} />
+        <img className="w-full h-96 object-cover" src={`https://retop-backend.vercel.app${blog.imageUrl}`} alt={blog.title} />
         <div className="p-6">
           <Link to="/blog" className="text-blue-500 hover:underline">&larr; Back to Blog</Link>
           <h1 className="text-4xl font-bold my-4 text-gray-900">{blog.title}</h1>
