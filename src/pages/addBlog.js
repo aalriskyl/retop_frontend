@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import AdminNav from '../components/AdminNav';
 import Sidebar from '../components/Sidebar';
 import axios from 'axios';
+import axiosInstance from '../axiosConfig';
 
 const AddBlog = () => {
   const [token, setToken] = useState(null);
@@ -53,8 +54,14 @@ const AddBlog = () => {
     e.preventDefault();
     try {
       const formData = new FormData();
-      // Append form data as before
-      const response = await axios.post('https://retop-backend-185f6fffe2a0.herokuapp.com/api/blogs', formData, {
+      formData.append('title', blogData.title);
+      formData.append('author', blogData.author);
+      formData.append('description', blogData.description);
+      formData.append('content', blogData.content);
+      formData.append('image', selectedImage); // Append selected image file
+
+      // Make POST request using axiosInstance
+      const response = await axiosInstance.post('/api/blogs', formData, {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'multipart/form-data',
