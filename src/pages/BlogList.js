@@ -19,33 +19,30 @@ const BlogList = () => {
 
     fetchBlogs();
   }, []);
+
   return (
     <div className="text-white bg-gradient-to-br from-blue-400 via-purple-800 to-red-400 min-h-screen pt-24">
-    <Navbar className="text-white" />
-    <div className="flex flex-col items-center">
-      <h1 className="text-3xl font-bold mt-8 mb-4">Artikel</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        {blogs.map(blog => (
-          <div key={blog._id} className="max-w-sm rounded-lg overflow-hidden shadow-lg bg-blue-700">
-            <Link to={`/blogs/${blog._id}`}>
-              <img className="w-full h-40 object-cover" src={`https://retop-backend-185f6fffe2a0.herokuapp.com${blog.imageUrl}`} alt={blog.title} />
-              <div className="px-6 py-4">
-                <div className="font-bold text-xl mb-2">{blog.title}</div>
-                <span className="inline-block text-white py-2 text-sm font-semibold mr-2">
-                  {blog.author}
-                </span>
-                <p className="text-gray-300 text-base">{blog.description}</p>
-              </div>
-              <div className="px-6 pt-4 pb-2">
-
-              </div>
-            </Link>
-          </div>
-        ))}
+      <Navbar className="text-white" />
+      <div className="flex flex-col items-center">
+        <h1 className="text-3xl font-bold mt-8 mb-4">Artikel</h1>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          {blogs.map(blog => (
+            <div key={blog._id} className="max-w-sm rounded-lg overflow-hidden shadow-lg bg-blue-700">
+              <Link to={`/blogs/${blog._id}`}>
+                <img className="w-full h-40 object-cover" src={`${axiosInstance.defaults.baseURL}${blog.imageUrl}`} alt={blog.title} />
+                <div className="px-6 py-4">
+                  <div className="font-bold text-xl mb-2">{blog.title}</div>
+                  <span className="inline-block text-white py-2 text-sm font-semibold mr-2">
+                    {blog.author}
+                  </span>
+                  <p className="text-gray-300 text-base">{blog.description}</p>
+                </div>
+              </Link>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
-    </div>
-
   );
 };
 
