@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import axios from '../axiosConfig'; // Adjust path if necessary
 import Navbar from '../components/Navbar'; // Adjust path if necessary
 import Sidebar from '../components/Sidebar'; // Adjust path if necessary
 
@@ -17,11 +17,7 @@ const AdminPage = () => {
       setToken(storedToken);
 
       // Fetch profiles
-      axios.get('https://retop-backend-185f6fffe2a0.herokuapp.com/profiles', {
-        headers: {
-          Authorization: `Bearer ${storedToken}`
-        }
-      })
+      axios.get('/profiles')
       .then(response => {
         console.log('Profiles:', response.data);
         setProfiles(response.data);
@@ -31,11 +27,7 @@ const AdminPage = () => {
       });
 
       // Fetch blogs
-      axios.get('https://retop-backend-185f6fffe2a0.herokuapp.com/api/blogs', {
-        headers: {
-          Authorization: `Bearer ${storedToken}`
-        }
-      })
+      axios.get('/api/blogs')
       .then(response => {
         console.log('Blogs:', response.data);
         setBlogs(response.data);
@@ -60,11 +52,7 @@ const AdminPage = () => {
 
   const handleDeleteProfile = (profileId) => {
     console.log('Deleting profile with ID:', profileId);
-    axios.delete(`https://retop-backend-185f6fffe2a0.herokuapp.com/profiles/${profileId}`, {
-      headers: {
-        Authorization: `Bearer ${token}`
-      }
-    })
+    axios.delete(`/profiles/${profileId}`)
     .then(() => {
       setProfiles(profiles.filter(profile => profile._id !== profileId));
     })
@@ -75,11 +63,7 @@ const AdminPage = () => {
 
   const handleDeleteBlog = (blogId) => {
     console.log('Deleting blog with ID:', blogId);
-    axios.delete(`https://retop-backend-185f6fffe2a0.herokuapp.com/api/blogs/${blogId}`, {
-      headers: {
-        Authorization: `Bearer ${token}`
-      }
-    })
+    axios.delete(`/api/blogs/${blogId}`)
     .then(() => {
       setBlogs(blogs.filter(blog => blog._id !== blogId));
     })
