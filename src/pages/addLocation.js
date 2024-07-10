@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import axiosInstance from '../axiosConfig';
 import Sidebar from '../components/Sidebar';
 
 const AddLocation = () => {
@@ -55,15 +55,8 @@ const AddLocation = () => {
     formData.append('latitude', tokoData.latitude);
     formData.append('longitude', tokoData.longitude);
   
-    const config = {
-      headers: {
-        Authorization: `Bearer ${token}`,
-        'Content-Type': 'multipart/form-data',
-      },
-    };
-  
     try {
-      const response = await axios.post('https://retop-backend-185f6fffe2a0.herokuapp.com/profiles', formData, config);
+      const response = await axiosInstance.post('/profiles', formData);
       console.log('Location added:', response.data);
       setTokoData({
         name: '',
@@ -74,7 +67,6 @@ const AddLocation = () => {
         longitude: '',
       });
       setError(null);
-      // Optionally, reset the form here
     } catch (error) {
       console.error('Error adding location:', error.response?.data || error.message);
       setError('Failed to add location. Please try again.');
