@@ -29,7 +29,7 @@ const BlogList = () => {
           {blogs.map(blog => (
             <div key={blog._id} className="max-w-sm rounded-lg overflow-hidden shadow-lg bg-blue-700">
               <Link to={`/blogs/${blog._id}`}>
-                <img className="w-full h-40 object-cover" src={`${axiosInstance.defaults.baseURL}${blog.imageUrl}`} alt={blog.title} />
+                <img className="w-full h-40 object-cover" src={blog.imageUrl} alt={blog.title} />
                 <div className="px-6 py-4">
                   <div className="font-bold text-xl mb-2">{blog.title}</div>
                   <span className="inline-block text-white py-2 text-sm font-semibold mr-2">
