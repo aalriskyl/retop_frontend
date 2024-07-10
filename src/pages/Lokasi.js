@@ -15,7 +15,7 @@ const Lokasi = () => {
   useEffect(() => {
     const fetchMarkerData = async () => {
       try {
-        const response = await axios.get("https://retop-backend.vercel.app/profiles");
+        const response = await axios.get("https://retop-backend-185f6fffe2a0.herokuapp.com/profiles");
         setMarkers(response.data);
       } catch (error) {
         console.error("Error fetching marker data:", error);
