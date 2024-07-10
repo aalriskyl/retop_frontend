@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import AdminNav from '../components/AdminNav';
 import Sidebar from '../components/Sidebar';
-import axios from 'axios';
 import axiosInstance from '../axiosConfig';
 
 const AddBlog = () => {
@@ -58,18 +57,17 @@ const AddBlog = () => {
       formData.append('author', blogData.author);
       formData.append('description', blogData.description);
       formData.append('content', blogData.content);
-      formData.append('image', selectedImage); // Append selected image file
+      formData.append('image', selectedImage);
 
-      // Make POST request using axiosInstance
       const response = await axiosInstance.post('/api/blogs', formData, {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'multipart/form-data',
         },
       });
+
       console.log('Blog added successfully:', response.data);
       alert('Blog added successfully!');
-      // Reset form data and state
       setBlogData({
         title: '',
         author: '',
@@ -83,7 +81,6 @@ const AddBlog = () => {
       alert('Failed to add blog. Please try again.');
     }
   };
-  
 
   const sidebarLinks = [
     { label: 'Add Blog', path: '/addblog' },
@@ -102,9 +99,8 @@ const AddBlog = () => {
         </div>
       )}
       {token && (
-        <div className="flex"> {/* Use flex container to align Sidebar and content */}
+        <div className="flex">
           <Sidebar links={sidebarLinks} />
-
           <div className="max-w-4xl mx-auto mt-8 p-6 bg-white rounded-lg shadow-md">
             <h1 className="text-3xl font-bold mb-4">Add Blog</h1>
             <form className="space-y-4" onSubmit={handleSubmit}>
@@ -176,12 +172,25 @@ const AddBlog = () => {
                 <button
                   type="button"
                   className="bg-gray-300 text-gray-700 py-2 px-4 rounded-md hover:bg-gray-400 focus:outline-none focus:bg-gray-400"
+                  onClick={() => {
+                    setBlogData({
+                      title: '',
+                      author: '',
+                      description: '',
+                      content: ''
+                    });
+                    setSelectedImage(null);
+                    setImagePreview('');
+                  }}
                 >
                   Cancel
                 </button>
                 <button
                   type="button"
                   className="bg-red-500 text-white py-2 px-4 rounded-md hover:bg-red-600 focus:outline-none focus:bg-red-600"
+                  onClick={() => {
+                    // Implement delete functionality if needed
+                  }}
                 >
                   Delete
                 </button>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 import Navbar from '../components/Navbar';
+import axiosInstance from '../axiosConfig';
 
 const BlogList = () => {
   const [blogs, setBlogs] = useState([]);
@@ -9,7 +9,7 @@ const BlogList = () => {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const response = await axios.get('https://retop-backend.vercel.app/api/blogs');
+        const response = await axiosInstance.get('/api/blogs');
         console.log(response.data);  // Log the fetched data
         setBlogs(response.data);
       } catch (error) {
@@ -19,7 +19,6 @@ const BlogList = () => {
 
     fetchBlogs();
   }, []);
-
   return (
     <div className="text-white bg-gradient-to-br from-blue-400 via-purple-800 to-red-400 min-h-screen pt-24">
     <Navbar className="text-white" />
@@ -29,7 +28,7 @@ const BlogList = () => {
         {blogs.map(blog => (
           <div key={blog._id} className="max-w-sm rounded-lg overflow-hidden shadow-lg bg-blue-700">
             <Link to={`/blogs/${blog._id}`}>
-              <img className="w-full h-40 object-cover" src={`https://retop-backend.vercel.app${blog.imageUrl}`} alt={blog.title} />
+              <img className="w-full h-40 object-cover" src={`https://retop-backend-185f6fffe2a0.herokuapp.com${blog.imageUrl}`} alt={blog.title} />
               <div className="px-6 py-4">
                 <div className="font-bold text-xl mb-2">{blog.title}</div>
                 <span className="inline-block text-white py-2 text-sm font-semibold mr-2">

@@ -115,7 +115,7 @@ const Map = ({ showMarker, showMarkers, currentLocation, selectedShop, zoomLevel
               <Popup>
                 <div className="text-center">
                   <h3 className="mb-1 text-lg font-bold">{marker.name}</h3>
-                  <img src={`https://retop-backend.vercel.app${marker.imageUrl}`} alt={marker.name} className="w-24 h-auto mx-auto" />
+                  <img src={`https://retop-backend-185f6fffe2a0.herokuapp.com${marker.imageUrl}`} alt={marker.name} className="w-24 h-auto mx-auto" />
                   <p className="mt-1 text-sm">{marker.address}</p>
                   {distance !== null && (
                     <p className="mt-1 text-sm">Distance: {distance.toFixed(2)} km</p>

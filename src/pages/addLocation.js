@@ -63,7 +63,7 @@ const AddLocation = () => {
     };
   
     try {
-      const response = await axios.post('https://retop-backend.vercel.app/profiles', formData, config);
+      const response = await axios.post('https://retop-backend-185f6fffe2a0.herokuapp.com/profiles', formData, config);
       console.log('Location added:', response.data);
       setTokoData({
         name: '',
