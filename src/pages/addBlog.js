@@ -59,6 +59,14 @@ const AddBlog = () => {
       formData.append('content', blogData.content);
       formData.append('image', selectedImage);
 
+      console.log('Submitting form data:', {
+        title: blogData.title,
+        author: blogData.author,
+        description: blogData.description,
+        content: blogData.content,
+        image: selectedImage,
+      });
+
       const response = await axiosInstance.post('/api/blogs', formData, {
         headers: {
           'Authorization': `Bearer ${token}`,
