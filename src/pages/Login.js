@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import axiosInstance from './axiosConfig';
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -20,13 +21,13 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://retop-backend-185f6fffe2a0.herokuapp.com/profiles/login', formData);
+      const response = await axiosInstance.post('/profiles/login', formData);
       console.log(response.data); // Handle the response as per your application logic
       if (response.data.token) {
         localStorage.setItem('token', response.data.token);
         setTimeout(() => {
           navigate('/admin');
-        }, 1000); // Redirect after 1 seconds
+        }, 1000); // Redirect after 1 second
       }
     } catch (error) {
       console.error('Login failed:', error);
