@@ -51,27 +51,18 @@ const AddBlog = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
       const formData = new FormData();
-      formData.append('title', blogData.title);
-      formData.append('author', blogData.author);
-      formData.append('description', blogData.description);
-      formData.append('content', blogData.content);
-      if (selectedImage) {
-        formData.append('image', selectedImage);
-      }
-
-      const response = await axios.post('https://retop-backend.vercel.app/api/blogs', formData, {
+      // Append form data as before
+      const response = await axios.post('https://retop-backend-185f6fffe2a0.herokuapp.com/api/blogs', formData, {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'multipart/form-data',
         },
       });
-
       console.log('Blog added successfully:', response.data);
-      alert('Success');
-
+      alert('Blog added successfully!');
+      // Reset form data and state
       setBlogData({
         title: '',
         author: '',
@@ -80,13 +71,12 @@ const AddBlog = () => {
       });
       setSelectedImage(null);
       setImagePreview('');
-
-      alert('Blog added successfully!');
     } catch (error) {
       console.error('Error adding blog:', error);
       alert('Failed to add blog. Please try again.');
     }
   };
+  
 
   const sidebarLinks = [
     { label: 'Add Blog', path: '/addblog' },

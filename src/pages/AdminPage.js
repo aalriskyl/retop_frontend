@@ -17,7 +17,7 @@ const AdminPage = () => {
       setToken(storedToken);
 
       // Fetch profiles
-      axios.get('https://retop-backend.vercel.app/profiles', {
+      axios.get('https://retop-backend-185f6fffe2a0.herokuapp.com/profiles', {
         headers: {
           Authorization: `Bearer ${storedToken}`
         }
@@ -31,7 +31,7 @@ const AdminPage = () => {
       });
 
       // Fetch blogs
-      axios.get('https://retop-backend.vercel.app/api/blogs', {
+      axios.get('https://retop-backend-185f6fffe2a0.herokuapp.com/api/blogs', {
         headers: {
           Authorization: `Bearer ${storedToken}`
         }
@@ -60,7 +60,7 @@ const AdminPage = () => {
 
   const handleDeleteProfile = (profileId) => {
     console.log('Deleting profile with ID:', profileId);
-    axios.delete(`https://retop-backend.vercel.app/profiles/${profileId}`, {
+    axios.delete(`https://retop-backend-185f6fffe2a0.herokuapp.com/profiles/${profileId}`, {
       headers: {
         Authorization: `Bearer ${token}`
       }
@@ -75,7 +75,7 @@ const AdminPage = () => {
 
   const handleDeleteBlog = (blogId) => {
     console.log('Deleting blog with ID:', blogId);
-    axios.delete(`https://retop-backend.vercel.app/api/blogs/${blogId}`, {
+    axios.delete(`https://retop-backend-185f6fffe2a0.herokuapp.com/api/blogs/${blogId}`, {
       headers: {
         Authorization: `Bearer ${token}`
       }
