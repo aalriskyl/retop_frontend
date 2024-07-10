@@ -161,8 +161,8 @@ const AddLocation = () => {
                   value={tokoData.latitude}
                   onChange={(e) => setTokoData({ ...tokoData, latitude: e.target.value })}
                   required
-                  pattern="^-?[0-9]{1,3}\.[0-9]{1,6}$" // Example pattern for latitude validation
-                  title="Latitude must be a number with up to 6 decimal places."
+                  pattern="^-?[0-9]{1,3}\.[0-9]{1,10}$" // Example pattern for latitude validation
+                  title="Latitude must be a number with up to 10 decimal places."
                   className="mt-1 p-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                 />
               </div>
@@ -176,8 +176,8 @@ const AddLocation = () => {
                   value={tokoData.longitude}
                   onChange={(e) => setTokoData({ ...tokoData, longitude: e.target.value })}
                   required
-                  pattern="^-?[0-9]{1,3}\.[0-9]{1,6}$" // Example pattern for longitude validation
-                  title="Longitude must be a number with up to 6 decimal places."
+                  pattern="^-?[0-9]{1,3}\.[0-9]{1,10}$" // Example pattern for longitude validation
+                  title="Longitude must be a number with up to 10 decimal places."
                   className="mt-1 p-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                 />
               </div>
