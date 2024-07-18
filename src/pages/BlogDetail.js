@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import Navbar from '../components/Navbar';
+import axiosInstance from '../axiosConfig';
 
 const BlogDetail = () => {
   const { id } = useParams();
